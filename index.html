@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Shayle - Frontend Developer portfolio showcasing projects, skills and contact information." />
+  <title>Shayle — Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── NEW CONTACT SECTION STYLES ── */
+    .contact-new {
+      padding: 100px 0;
+    }
+
+    .contact-new .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .contact-split-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      margin-top: 48px;
+    }
+
+    /* LEFT */
+    .csplit-left {
+      background: #0F1B2D;
+      padding: 52px 44px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .csplit-glow {
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #5B4FE8 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .csplit-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5B4FE8;
+      background: rgba(91, 79, 232, 0.12);
+      border: 1px solid rgba(91, 79, 232, 0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .csplit-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #5B4FE8;
+      animation: ctag-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ctag-pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.7);
+      }
+    }
+
+    .csplit-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #F7F3EE;
+      letter-spacing: -0.02em;
+    }
+
+    .csplit-heading span {
+      color: #FF6B5B;
+    }
+
+    .csplit-sub {
+      font-size: 13.5px;
+      color: #8A95A3;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    .csplit-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .csplit-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .csplit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(91, 79, 232, 0.15);
+      border: 1px solid rgba(91, 79, 232, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .csplit-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke: #5B4FE8;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .csplit-item-label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8A95A3;
+    }
+
+    .csplit-item-value {
+      font-size: 13.5px;
+      color: #F7F3EE;
+      margin-top: 2px;
+    }
+
+    .csplit-wave {
+      position: absolute;
+      bottom: -10px;
+      left: -30px;
+      width: 110%;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    /* RIGHT */
+    .csplit-right {
+      background: #F7F3EE;
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .csplit-form-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: #0F1B2D;
+    }
+
+    .csplit-form-sub {
+      font-size: 13px;
+      color: #8A95A3;
+      margin-top: -12px;
+    }
+
+    .csplit-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .csplit-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .csplit-field label {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8A95A3;
+    }
+
+    .csplit-field input,
+    .csplit-field textarea,
+    .csplit-field select {
+      width: 100%;
+      background: #fff;
+      border: 1.5px solid #E2DDD8;
+      border-radius: 10px;
+      padding: 11px 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      color: #0F1B2D;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .csplit-field input::placeholder,
+    .csplit-field textarea::placeholder {
+      color: #B8B0A8;
+    }
+
+    .csplit-field input:focus,
+    .csplit-field textarea:focus,
+    .csplit-field select:focus {
+      border-color: #5B4FE8;
+      box-shadow: 0 0 0 3px rgba(91, 79, 232, 0.1);
+    }
+
+    .csplit-field textarea {
+      resize: none;
+      height: 90px;
+    }
+
+    .csplit-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #0F1B2D;
+      color: #F7F3EE;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .csplit-submit:hover {
+      background: #5B4FE8;
+      transform: translateY(-1px);
+    }
+
+    .csplit-submit svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s;
+    }
+
+    .csplit-submit:hover svg {
+      transform: translateX(3px);
+    }
+
+    .csplit-privacy {
+      font-size: 11.5px;
+      color: #B8B0A8;
+      text-align: center;
+      margin-top: -6px;
+    }
+
+    @media (max-width: 700px) {
+      .contact-split-card {
+        grid-template-columns: 1fr;
+      }
+
+      .csplit-left {
+        padding: 40px 28px;
+      }
+
+      .csplit-right {
+        padding: 40px 28px;
+      }
+
+      .csplit-row {
+        grid-template-columns: 1fr;
+      }
+
+      .csplit-heading {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav>
+      <a href="#home" class="nav-logo">Shayle<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="hero-orb-1"></div>
+      <div class="hero-orb-2"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">Frontend Developer</div>
+          <h1>Hi, I'm<br><span class="name">Shayle</span></h1>
+          <p class="hero-desc">I build modern, responsive, and interactive websites with clean code and smooth user
+            experiences.</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="cv.pdf" download class="btn-outline">Download CV</a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <div class="hero-stat-num">3+</div>
+              <div class="hero-stat-label">Projects Built</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">4</div>
+              <div class="hero-stat-label">Core Skills</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">BD</div>
+              <div class="hero-stat-label">Based In</div>
+            </div>
+          </div>
+        </div>
+        <div class="avatar-wrap">
+          <div class="avatar-inner">
+            <img src="PROFILE.jpeg" alt="Shayle" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="section-inner">
+        <div class="section-eyebrow-fade-up">About Me</div>
+        <h2 id="about-heading" class="section-title fade-up">Passionate about<br>crafting great UI.</h2>
+        <div class="about-grid">
+          <div class="about-text fade-up">
+            <p>I'm a frontend developer from Bangladesh who loves turning ideas into clean, functional interfaces. I
+              focus on writing readable code and building experiences that feel smooth and intuitive.</p>
+            <p>I enjoy the creative challenge of making things look great while keeping performance in mind. Always
+              learning, always building.</p>
+            <p style="margin-top:1.5rem">
+              <a href="#contact" class="btn-primary" style="display:inline-block">Let's work together →</a>
+            </p>
+          </div>
+          <div class="fade-up delay-1">
+            <div class="about-card">
+              <div class="about-card-icon" aria-hidden="true">🎨</div>
+              <div>
+                <div class="about-card-title">Clean Design</div>
+                <div class="about-card-desc">I care about pixel-perfect layouts and smooth visual hierarchy.</div>
+              </div>
+            </div>
+            <div class="about-card" style="margin-top:1rem">
+              <div class="about-card-icon" aria-hidden="true">📱</div>
+              <div>
+                <div class="about-card-title">Responsive First</div>
+                <div class="about-card-desc">Every project looks great on phones, tablets and desktops.</div>
+              </div>
+            </div>
+            <div class="about-card" style="margin-top:1rem">
+              <div class="about-card-icon" aria-hidden="true">⚡</div>
+              <div>
+                <div class="about-card-title">Fast & Accessible</div>
+                <div class="about-card-desc">Performant code that works for everyone, everywhere.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills" aria-labelledby="skills-heading">
+      <div class="section-inner">
+        <div class="section-eyebrow-fade-up">My Skills</div>
+        <h2 id="skills-heading" class="section-title fade-up">What I work with.</h2>
+        <div class="skills-grid">
+          <div class="skill-card fade-up">
+            <div class="skill-header">
+              <div class="skill-name"><span class="skill-icon" aria-hidden="true">🌐</span> HTML</div>
+              <span class="skill-pct">95%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="95"></div>
+            </div>
+          </div>
+          <div class="skill-card fade-up delay-1">
+            <div class="skill-header">
+              <div class="skill-name"><span class="skill-icon" aria-hidden="true">🎨</span> CSS</div>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-card fade-up delay-2">
+            <div class="skill-header">
+              <div class="skill-name"><span class="skill-icon" aria-hidden="true">⚡</span> Tailwind CSS</div>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="88"></div>
+            </div>
+          </div>
+          <div class="skill-card fade-up delay-3">
+            <div class="skill-header">
+              <div class="skill-name"><span class="skill-icon" aria-hidden="true">🧠</span> JavaScript</div>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <div class="section-eyebrow-fade-up">My Projects</div>
+        <h2 id="projects-heading" class="section-title fade-up">Things I've built.</h2>
+        <div class="projects-grid">
+          <div class="project-card fade-up">
+            <div class="project-img">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200"
+                alt="Hotel Management System Dashboard Interface" loading="lazy" decoding="async" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Hotel Management System</div>
+              <div class="project-desc">A full-featured hotel management interface with room booking and admin controls.
+              </div>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="project-tag">HTML</span>
+                  <span class="project-tag">CSS</span>
+                  <span class="project-tag">JS</span>
+                </div>
+                <a href="https://shayle123.github.io/Hotel-Management-System/" target="_blank" class="project-link">Live
+                  ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card fade-up delay-1">
+            <div class="project-img">
+              <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?q=80&w=1200"
+                alt="Tic Tac Toe Game Grid" loading="lazy" decoding="async" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Tic Tac Toe Game</div>
+              <div class="project-desc">Interactive two-player game built with vanilla JavaScript, smooth win detection.
+              </div>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="project-tag">HTML</span>
+                  <span class="project-tag">CSS</span>
+                  <span class="project-tag">JS</span>
+                </div>
+                <a href="https://shayle123.github.io/Tic-Tac-Toe-game/" target="_blank" class="project-link">Live ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card fade-up delay-2">
+            <div class="project-img">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
+                alt="Modern Responsive Portfolio Layout" loading="lazy" decoding="async" />
+              <div class="project-img-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Portfolio Website</div>
+              <div class="project-desc">My personal responsive portfolio showcasing projects and skills with modern
+                design.</div>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="project-tag">Tailwind</span>
+                  <span class="project-tag">JS</span>
+                </div>
+                <a href="https://shayle123.github.io/My-Portfolio" target="_blank" class="project-link">Live ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         NEW CONTACT SECTION
+    ══════════════════════════════════════ -->
+    <section class="contact contact-new" id="contact" aria-labelledby="contact-heading">
+      <div class="section-inner">
+
+        <div class="section-eyebrow-fade-up">Contact Me</div>
+        <h2 id="contact-heading" class="section-title fade-up">Let's connect.</h2>
+
+        <div class="contact-split-card fade-up">
+
+          <!-- LEFT: info panel -->
+          <div class="csplit-left">
+            <div class="csplit-glow"></div>
+
+            <div>
+              <div class="csplit-tag">Get in touch</div>
+              <h3 class="csplit-heading" style="margin-top:18px;">
+                Let's start a<br><span>conversation.</span>
+              </h3>
+              <p class="csplit-sub">
+                I respond to every message within one business day. No auto-replies — just a real developer ready to
+                help.
+              </p>
+            </div>
+
+            <div class="csplit-methods">
+
+              <div class="csplit-item">
+                <div class="csplit-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.1 5.18 2 2 0 015.09 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="csplit-item-label">GitHub</div>
+                  <div class="csplit-item-value">
+                    <a href="https://github.com/Shayle123" target="_blank"
+                      style="color:#F7F3EE;text-decoration:none;">github.com/Shayle123</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="csplit-item">
+                <div class="csplit-icon">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M2 7l10 7 10-7" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="csplit-item-label">LinkedIn</div>
+                  <div class="csplit-item-value">
+                    <a href="https://linkedin.com" target="_blank" style="color:#F7F3EE;text-decoration:none;">Connect
+                      professionally</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="csplit-item">
+                <div class="csplit-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="csplit-item-label">Location</div>
+                  <div class="csplit-item-value">Bangladesh · Open to remote</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- wave decoration -->
+            <svg class="csplit-wave" viewBox="0 0 400 120" preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 60 Q50 20 100 60 T200 60 T300 60 T400 60" stroke="#5B4FE8" stroke-width="2" fill="none" />
+              <path d="M0 80 Q50 40 100 80 T200 80 T300 80 T400 80" stroke="#FF6B5B" stroke-width="1.5" fill="none" />
+              <path d="M0 40 Q50 10 100 40 T200 40 T300 40 T400 40" stroke="#5B4FE8" stroke-width="1" fill="none"
+                opacity="0.5" />
+            </svg>
+          </div>
+
+          <!-- RIGHT: form panel -->
+          <div class="csplit-right">
+            <div class="csplit-form-title">Send a Message</div>
+            <div class="csplit-form-sub">I'll get back to you as soon as possible.</div>
+
+            <form onsubmit="handleSubmit(event)">
+
+              <div class="csplit-row">
+                <div class="csplit-field">
+                  <label for="user-name">Your Name</label>
+                  <input type="text" id="user-name" placeholder="e.g. John Doe" required />
+                </div>
+                <div class="csplit-field">
+                  <label for="user-email">Email Address</label>
+                  <input type="email" id="user-email" placeholder="you@example.com" required />
+                </div>
+              </div>
+
+              <div class="csplit-field" style="margin-top:16px;">
+                <label for="user-subject">Subject</label>
+                <select id="user-subject">
+                  <option value="" disabled selected>Choose a topic…</option>
+                  <option>Freelance project</option>
+                  <option>Collaboration</option>
+                  <option>Job opportunity</option>
+                  <option>General inquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="csplit-field" style="margin-top:16px;">
+                <label for="user-message">Message</label>
+                <textarea id="user-message" placeholder="What's on your mind?" required></textarea>
+              </div>
+
+              <button type="submit" class="csplit-submit" id="submitBtn" style="margin-top:18px;width:100%;">
+                Send Message
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+            </form>
+
+            <p class="csplit-privacy">I'll never share your information with anyone.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Shayle — Frontend Developer</span>
+    <span>Built with ♥ in Bangladesh</span>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
